@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>CSS Competence Trial Task</title>
+  <style>
+    /* CSS Grid layout */
+    body {
+      display: grid;
+      grid-template-rows: auto 1fr auto;
+      height: 100vh;
+      margin: 0;
+      padding: 0;
+    }
+    
+    /* Header styles */
+    header {
+      background-color: #333;
+      color: #fff;
+      padding: 20px;
+    }
+    
+    /* Main content styles */
+    main {
+      padding: 20px;
+    }
+    
+    /* Footer styles */
+    footer {
+      background-color: #333;
+      color: #fff;
+      padding: 20px;
+    }
+    
+    /* Keyframe animation */
+    @keyframes rotate {
+      0% { transform: rotate(0deg); }
+      100% { transform: rotate(360deg); }
+    }
+    
+    /* Button hover effect */
+    button {
+      background-color: #333;
+      color: #fff;
+      padding: 10px 20px;
+      border: none;
+      border-radius: 4px;
+      cursor: pointer;
+      animation: rotate 2s linear infinite;
+    }
+    
+    button:hover {
+      background-color: #555;
+    }
+    
+    /* Advanced Technique 1: CSS Variables */
+    :root {
+      --primary-color: #ff5722;
+    }
+    
+    h1 {
+      color: var(--primary-color);
+    }
+    
+    /* Advanced Technique 2: Blend Modes and Gradients */
+    main {
+      background: linear-gradient(to bottom, #f44336, #2196f3);
+      mix-blend-mode: multiply;
+      color: #fff;
+    }
+    
+    /* Responsive styles */
+    @media only screen and (max-width: 600px) {
+      body {
+        grid-template-rows: auto 1fr auto;
+      }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>CSS Competence Trial Task</h1>
+  </header>
+  
+  <main>
+    <h2>Welcome to my animated webpage!</h2>
+    <p>This is a sample webpage showcasing my CSS skills.</p>
+    <button>Hover Me!</button>
+  </main>
+  
+  <footer>
+    <p>&copy; 2023 My Website. All rights reserved.</p>
+  </footer>
+</body>
+</html>
