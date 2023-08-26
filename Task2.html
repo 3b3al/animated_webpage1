@@ -1,0 +1,248 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>CSS Competence Trial Task #2</title>
+  <style>
+    /* General Styles */
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+    }
+    
+    /* Interactive UI Elements */
+    .button {
+      display: inline-block;
+      padding: 10px 20px;
+      background-color: #333;
+      color: #fff;
+      border-radius: 4px;
+      cursor: pointer;
+      transition: transform 0.3s ease;
+    }
+    
+    .button:hover {
+      transform: scale(1.1);
+    }
+    
+    .slider {
+      width: 200px;
+      height: 10px;
+      background-color: #aaa;
+      border-radius: 5px;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+    }
+    
+    .slider:hover {
+      background-color: #888;
+    }
+    
+    .toggle {
+      width: 50px;
+      height: 30px;
+      background-color: #aaa;
+      border-radius: 15px;
+      cursor: pointer;
+      position: relative;
+      transition: background-color 0.3s ease;
+    }
+    
+    .toggle:before {
+      content: '';
+      position: absolute;
+      top: 2px;
+      left: 2px;
+      width: 26px;
+      height: 26px;
+      background-color: #fff;
+      border-radius: 50%;
+      transition: transform 0.3s ease;
+    }
+    
+    .toggle.active {
+      background-color: #2196f3;
+    }
+    
+    .toggle.active:before {
+      transform: translateX(20px);
+    }
+    
+    /* Pseudo-Elements */
+    .pseudo-element-section {
+      position: relative;
+      width: 400px;
+      height: 400px;
+      background-color: #f5f5f5;
+      margin: 50px auto;
+      border: 2px solid #333;
+      border-radius: 4px;
+    }
+    
+    .pseudo-element-section::before {
+      content: 'BEFORE';
+      position: absolute;
+      top: 10px;
+      left: 10px;
+      padding: 10px;
+      background-color: #333;
+      color: #fff;
+    }
+    
+    .pseudo-element-section::after {
+      content: 'AFTER';
+      position: absolute;
+      bottom: 10px;
+      right: 10px;
+      padding: 10px;
+      background-color: #333;
+      color: #fff;
+    }
+    
+    /* 3D Elements */
+    .card {
+      width: 200px;
+      height: 300px;
+      background-color: #2196f3;
+      margin: 50px auto;
+      perspective: 1000px;
+    }
+    
+    .card-inner {
+      position: relative;
+      width: 100%;
+      height: 100%;
+      transition: transform 0.8s;
+      transform-style: preserve-3d;
+    }
+    
+    .card.flip .card-inner {
+      transform: rotateY(180deg);
+    }
+    
+    .card-face {
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      backface-visibility: hidden;
+    }
+    
+    .card-front {
+      background-color: #333;
+      color: #fff;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      font-size: 24px;
+    }
+    
+    .card-back {
+      background-color: #f44336;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      font-size: 24px;
+      transform: rotateY(180deg);
+    }
+    
+    /* Custom Cursors */
+    .custom-cursor {
+      width: 100vw;
+      height: 100vh;
+      background-color: #f5f5f5;
+      cursor: none;
+      overflow: hidden;
+    }
+    
+    .cursor {
+      position: absolute;
+      width: 40px;
+      height: 40px;
+      background-color: rgba(0, 0, 0, 0.5);
+      border-radius: 50%;
+      pointer-events: none;
+      transition: background-color 0.3s;
+      z-index: 9999;
+    }
+    
+    .cursor.small {
+      width: 20px;
+      height: 20px;
+    }
+    
+    .cursor.medium {
+      width: 30px;
+      height: 30px;
+    }
+    
+    .cursor.large {
+      width:```html
+      .cursor.large {
+        width: 50px;
+        height: 50px;
+      }
+      
+      .cursor:hover {
+        background-color: rgba(0, 0, 0, 0.8);
+      }
+    </style>
+  </head>
+  <body>
+    <div class="button">Button</div>
+    
+    <input type="range" class="slider">
+    
+    <div class="toggle"></div>
+  
+    <div class="pseudo-element-section"></div>
+  
+    <div class="card">
+      <div class="card-inner">
+        <div class="card-face card-front">Front</div>
+        <div class="card-face card-back">Back</div>
+      </div>
+    </div>
+  
+    <div class="custom-cursor">
+      <div class="cursor"></div>
+      <h1>Custom Cursor</h1>
+    </div>
+  
+    <div class="interactive-element">Interactive Element</div>
+  
+    <script>
+      
+      const cursor = document.querySelector('.cursor');
+      const customCursor = document.querySelector('.custom-cursor');
+      
+      customCursor.addEventListener('mousemove', (e) => {
+        cursor.style.top = `${e.clientY}px`;
+        cursor.style.left = `${e.clientX}px`;
+      });
+      
+      const sections = document.querySelectorAll('section');
+      
+      sections.forEach((section) => {
+        section.addEventListener('mouseenter', () => {
+          cursor.classList.add('large');
+        });
+        
+        section.addEventListener('mouseleave', () => {
+          cursor.classList.remove('large');
+        });
+      });
+      
+      const buttons = document.querySelectorAll('.button');
+      
+      buttons.forEach((button) => {
+        button.addEventListener('mouseenter', () => {
+          cursor.classList.add('small');
+        });
+        
+        button.addEventListener('mouseleave', () => {
+          cursor.classList.remove('small');
+        });
+      });
+    </script>
+  </body>
+  </html>
